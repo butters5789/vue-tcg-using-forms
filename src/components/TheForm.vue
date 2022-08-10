@@ -90,6 +90,9 @@
       </div>
     </div>
     <div class="form-control">
+      <rating-control v-model="rating"></rating-control>
+    </div>
+    <div class="form-control">
       <label for="terms">
         <input type="checkbox" id="terms" name="terms" v-model="terms" />
         Agree to terms?
@@ -102,11 +105,15 @@
 </template>
 
 <script>
+import RatingControl from './RatingControl.vue';
+
 export default {
+  components: { RatingControl },
   data() {
     return {
       how: null,
       interests: [],
+      rating: null,
       referrer: 'wom',
       terms: false,
       userAge: null,
@@ -121,10 +128,12 @@ export default {
       console.log(this.referrer);
       console.log(this.interests);
       console.log(this.how);
+      console.log(this.rating);
       console.log(this.terms);
 
       this.how = null;
       this.interests = [];
+      this.rating = null;
       this.referrer = 'wom';
       this.terms = false;
       this.userAge = null;
